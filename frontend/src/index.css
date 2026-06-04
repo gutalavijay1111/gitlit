@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 93%;
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 93%;
+    --border: 240 5% 17%;
+    --input: 240 5% 17%;
+    --ring: 263 70% 60%;
+    --primary: 263 70% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 12%;
+    --secondary-foreground: 0 0% 80%;
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 240 5% 15%;
+    --accent-foreground: 0 0% 90%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --radius: 0.6rem;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground;
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+}
+
+@layer components {
+  .badge-open {
+    @apply bg-emerald-500/15 text-emerald-400 border border-emerald-500/30;
+  }
+  .badge-closed {
+    @apply bg-violet-500/15 text-violet-400 border border-violet-500/30;
+  }
+  .badge-label {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .prose-gitlit {
+    @apply text-foreground/90 leading-relaxed;
+  }
+  .prose-gitlit h1, .prose-gitlit h2, .prose-gitlit h3 {
+    @apply text-foreground font-semibold mt-6 mb-3;
+  }
+  .prose-gitlit p {
+    @apply mb-4;
+  }
+  .prose-gitlit code {
+    @apply bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-foreground/90;
+  }
+  .prose-gitlit pre {
+    @apply bg-muted p-4 rounded-lg overflow-x-auto my-4;
+  }
+  .prose-gitlit pre code {
+    @apply bg-transparent p-0;
+  }
+  .prose-gitlit a {
+    @apply text-primary hover:underline;
+  }
+  .prose-gitlit ul, .prose-gitlit ol {
+    @apply pl-6 mb-4 space-y-1;
+  }
+  .prose-gitlit li {
+    @apply list-disc;
+  }
+  .prose-gitlit ol li {
+    @apply list-decimal;
+  }
+  .prose-gitlit blockquote {
+    @apply border-l-4 border-border pl-4 italic text-muted-foreground my-4;
+  }
+  .prose-gitlit hr {
+    @apply border-border my-6;
+  }
+  .prose-gitlit table {
+    @apply w-full border-collapse my-4;
+  }
+  .prose-gitlit th, .prose-gitlit td {
+    @apply border border-border px-4 py-2 text-left;
+  }
+  .prose-gitlit th {
+    @apply bg-muted font-semibold;
+  }
+}
